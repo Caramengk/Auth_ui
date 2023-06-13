@@ -2,6 +2,8 @@ import React, { FunctionComponent, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native'
 import { Input, Button } from '../components';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import LargeTitle from '../components/texts/largeTitle';
+import LinkText from '../components/texts/link';
 
 const App: FunctionComponent = (props) => {
     const [email, setEmail] = useState<string | null>(null);
@@ -9,15 +11,15 @@ const App: FunctionComponent = (props) => {
 
     return (
         <View style={styles.container}>
-            <Text>Login</Text>
+            <LargeTitle>Login</LargeTitle>
             <Input placeholder="Email" onChangeText={(text) => setEmail(text)} />
             <Input placeholder="Password" secureTextEntry onChangeText={(text) => setPassword(text)} />
             <Button title="Sign Up" onPress={() => alert(`Pressed`)} />
             <View style={styles.loginLink}>
                 <TouchableOpacity onPress={() => props.navigation.navigate('signup')}>
-                    <Text style={{ textDecorationLine: 'underline' }}>
+                    <LinkText>
                         Sign up
-                    </Text>
+                    </LinkText>
                 </TouchableOpacity>
             </View>
         </View>
